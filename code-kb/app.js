@@ -430,6 +430,14 @@ const articles = [
     `
   }
 ];
+
+// =====================
+// STATE
+// =====================
+let currentCat = 'all';
+let activeTags = [];
+let searchQuery = '';
+
 // =====================
 // HOME / ARTICLES NAV
 // =====================
@@ -451,7 +459,6 @@ function showArticles() {
 function goToCat(cat) {
   showArticles();
   currentCat = cat;
-  // Update sidebar
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
   if (btn) btn.classList.add('active');
@@ -461,47 +468,14 @@ function goToCat(cat) {
 }
 
 // =====================
-// STATE
+// RENDER HELPERS
 // =====================
-let currentCat = 'all';
-let activeTags = [];
-let searchQuery = '';
-
-// =====================
-// INIT
-// =====================
-function init() {
-  renderAllTags();
-  renderCards();
-  updateCounts();
-  // Populate home page counts
-  ['access','licensing','carriers','applications','declined','escalation'].forEach(cat => {
-    const count = articles.filter(a => a.cat === cat).length;
-    const el = document.getElementById('hc-count-' + cat);
-    if (el) el.textContent = `${count} article${count !== 1 ? 's' : ''}`;
-  });
-  document.getElementById('search').addEventListener('input', e => {
-    searchQuery = e.target.value.toLowerCase();
-    if (searchQuery) {
-      // Auto-switch to all articles view when searching
-      if (!document.getElementById('articles-page').classList.contains('active')) {
-        currentCat = 'all';
-        showArticles();
-        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
-        document.getElementById('results-title').textContent = 'All Articles';
-      }
-    }
-    renderCards();
-  });
-}
-
 function renderAllTags() {
   const allTags = [...new Set(articles.flatMap(a => a.tags))].sort();
   const container = document.getElementById('tags-list');
-  container.innerHTML = allTags.map(t => `
-    <button class="tag-filter" onclick="toggleTag('${t}', this)">${t}</button>
-  `).join('');
+  container.innerHTML = allTags.map(t =>
+    `<button class="tag-filter" onclick="toggleTag('${t}', this)">${t}</button>`
+  ).join('');
 }
 
 function updateCounts() {
@@ -517,7 +491,7 @@ function filteredArticles() {
   return articles.filter(a => {
     const matchCat = currentCat === 'all' || a.cat === currentCat;
     const matchTags = activeTags.length === 0 || activeTags.every(t => a.tags.includes(t));
-    const matchSearch = !searchQuery || 
+    const matchSearch = !searchQuery ||
       a.title.toLowerCase().includes(searchQuery) ||
       a.summary.toLowerCase().includes(searchQuery) ||
       a.tags.some(t => t.toLowerCase().includes(searchQuery)) ||
@@ -548,7 +522,7 @@ function renderCards() {
   empty.style.display = 'none';
 
   grid.innerHTML = items.map(a => {
-    const escClass = a.escalation === 'L1' ? 'esc-l1' : a.escalation === 'L2' ? 'esc-l2' : 'esc-l2';
+    const escClass = a.escalation === 'L1' ? 'esc-l1' : 'esc-l2';
     const tags = a.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join('');
     return `
       <div class="card" style="--card-color:${a.catColor};--card-color-bg:${a.catBg}" onclick="openDetail(${a.id})">
@@ -627,6 +601,35 @@ function copyText(btn) {
 }
 
 // =====================
+// INIT
+// =====================
+function init() {
+  renderAllTags();
+  renderCards();
+  updateCounts();
+
+  // Populate home page category counts
+  ['access','licensing','carriers','applications','declined','escalation'].forEach(cat => {
+    const count = articles.filter(a => a.cat === cat).length;
+    const el = document.getElementById('hc-count-' + cat);
+    if (el) el.textContent = `${count} article${count !== 1 ? 's' : ''}`;
+  });
+
+  // Search input
+  document.getElementById('search').addEventListener('input', e => {
+    searchQuery = e.target.value.toLowerCase();
+    if (searchQuery && !document.getElementById('articles-page').classList.contains('active')) {
+      currentCat = 'all';
+      showArticles();
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.cat-btn[data-cat="all"]').classList.add('active');
+      document.getElementById('results-title').textContent = 'All Articles';
+    }
+    renderCards();
+  });
+}
+
+// =====================
 // KEY EVENTS
 // =====================
 document.addEventListener('keydown', e => {
@@ -637,4 +640,11 @@ document.addEventListener('keydown', e => {
   }
 });
 
-init();
+// =====================
+// BOOT
+// =====================
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}

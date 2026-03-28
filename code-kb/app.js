@@ -55,21 +55,21 @@ const articles = [
       <div class="detail-section">
         <div class="detail-section-title">Products Available Per Carrier</div>
         <div class="contact-grid">
-          <div class="contact-card">
-            <div class="contact-carrier">AmAm — American Amicable</div>
-            <div class="contact-info">Quility Secure Future Preferred (QSFP)</div>
+          <div class="contact-card" style="cursor:pointer;border-color:rgba(255,209,102,0.3)" onclick="openDetail(11)">
+            <div class="contact-carrier">🏦 AmAm — American Amicable</div>
+            <div class="contact-info">Quility Secure Future Preferred (QSFP) → <strong>Open full carrier page</strong></div>
           </div>
-          <div class="contact-card">
-            <div class="contact-carrier">UHL — United Home/United Life</div>
-            <div class="contact-info">Quility Secure Future Complete (QSFC)</div>
+          <div class="contact-card" style="cursor:pointer;border-color:rgba(255,209,102,0.3)" onclick="openDetail(12)">
+            <div class="contact-carrier">🏦 UHL — United Home/United Life</div>
+            <div class="contact-info">Quility Secure Future Complete (QSFC) → <strong>Open full carrier page</strong></div>
           </div>
-          <div class="contact-card">
-            <div class="contact-carrier">SBLI</div>
-            <div class="contact-info">Quility Level Term (QLT)</div>
+          <div class="contact-card" style="cursor:pointer;border-color:rgba(255,209,102,0.3)" onclick="openDetail(13)">
+            <div class="contact-carrier">🏦 SBLI</div>
+            <div class="contact-info">Quility Level Term (QLT) → <strong>Open full carrier page</strong></div>
           </div>
-          <div class="contact-card">
-            <div class="contact-carrier">LGA — Legal & General</div>
-            <div class="contact-info">Quility Term Plus (QTP)</div>
+          <div class="contact-card" style="cursor:pointer;border-color:rgba(255,209,102,0.3)" onclick="openDetail(14)">
+            <div class="contact-carrier">🏦 LGA — Legal & General</div>
+            <div class="contact-info">Quility Term Plus (QTP) → <strong>Open full carrier page</strong></div>
           </div>
         </div>
       </div>
@@ -428,7 +428,463 @@ const articles = [
         <p>Having all three pieces upfront prevents unnecessary back-and-forth and helps Level 2 teams resolve issues faster. Never skip the screenshot — it's often the fastest way to identify the root cause.</p>
       </div>
     `
-  }
+  },
+  // ── CARRIER DETAIL PAGES ──────────────────────────────────────────
+  {
+    id: 11,
+    cat: "carriers",
+    catLabel: "Carriers & Products",
+    catColor: "#ffd166",
+    catBg: "rgba(255,209,102,0.1)",
+    icon: "🏦",
+    title: "AmAm — American Amicable",
+    summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions.",
+    tags: ["AmAm", "carriers", "QSFP", "underwriting", "commissions"],
+    escalation: "L1/L2",
+    body: `
+      <div class="carrier-tabs">
+        <button class="carrier-tab active" onclick="switchTab(this, 'amam-products')">Products / Plans</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'amam-contacts')">Contacts & Emails</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'amam-underwriting')">Underwriting / Declined</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'amam-portal')">Agent Portal</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'amam-commissions')">Commissions</button>
+      </div>
+
+      <div id="amam-products" class="carrier-tab-panel active">
+        <div class="detail-section">
+          <div class="detail-section-title">Products Available in Navigator</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Quility Secure Future Preferred (QSFP)</div>
+              <div class="contact-info">Applied directly in Navigator. Whole life / permanent coverage product.</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">JIT Contracting</div>
+          <div class="info-box">ℹ️ <span>AmAm uses <strong>Just-In-Time (JIT)</strong> contracting for all states — agents are appointed upon submission of their first application.</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">More Product Info</div>
+          <p>Visit the AmAm Carrier page in HQ: <strong>https://hq.quility.com/page/available-carriers</strong></p>
+        </div>
+      </div>
+
+      <div id="amam-contacts" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Key Contacts</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Underwriting</div>
+              <div class="contact-info"><a href="mailto:underwriting@aatx.com">underwriting@aatx.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Post-Issue / Policy Questions</div>
+              <div class="contact-info"><a href="mailto:CX@aatx.com">CX@aatx.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Commissions</div>
+              <div class="contact-info"><a href="mailto:commissions@aatx.com">commissions@aatx.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Agent Portal / Helpdesk</div>
+              <div class="contact-info"><a href="mailto:helpdesk@aatx.com">helpdesk@aatx.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="amam-underwriting" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Declined Application</div>
+          <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">For underwriting support on Quility Secure Future Preferred (AmAm), we recommend obtaining a Milliman report. A comprehensive report of the applicant's information is available at no cost if requested within 60 days of the decision. Applicants also have the right to dispute any information in the report directly with Milliman.</div></div>
+          <div class="info-box">ℹ️ <span><strong>Zendesk Macro:</strong> AmAm Decline-Milliman</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">How to Get the Milliman Report</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Online</div>
+              <div class="contact-info">Visit <strong>RxHistories for Consumers</strong> → click "Request a Report". Avg turnaround: 24 hours.</div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Email</div>
+              <div class="contact-info"><a href="mailto:FCRAreport@milliman.com">FCRAreport@milliman.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Phone</div>
+              <div class="contact-info">(877) 211-4816</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">App Resets (Post-Submission)</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Contact for Reset Requests</div>
+              <div class="contact-info"><a href="mailto:underwriting@aatx.com">underwriting@aatx.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="amam-portal" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Agent Portal Access</div>
+          <div class="contact-card">
+            <div class="contact-carrier">Can't login / Portal Issues</div>
+            <div class="contact-info"><a href="mailto:helpdesk@aatx.com">helpdesk@aatx.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Navigator Access Issues</div>
+          <div class="escalation-box">
+            <div class="esc-row"><span class="esc-label">Level 1</span><span class="esc-value">Quility Support</span></div>
+            <div class="esc-row"><span class="esc-label">Level 2</span><span class="esc-value">TechFicient: <a href="mailto:support@techf.com">support@techf.com</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="amam-commissions" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Policy Commission Questions</div>
+          <div class="contact-card">
+            <div class="contact-carrier">AmAm Commissions</div>
+            <div class="contact-info"><a href="mailto:commissions@aatx.com">commissions@aatx.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Quility Commission Structure Questions</div>
+          <div class="info-box">ℹ️ <span>For hierarchy, contracting, or structure questions — escalate to a Quility ticket. We'll route to the correct team.</span></div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 12,
+    cat: "carriers",
+    catLabel: "Carriers & Products",
+    catColor: "#ffd166",
+    catBg: "rgba(255,209,102,0.1)",
+    icon: "🏦",
+    title: "UHL — United Home Life",
+    summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions.",
+    tags: ["UHL", "carriers", "QSFC", "underwriting", "commissions"],
+    escalation: "L1/L2",
+    body: `
+      <div class="carrier-tabs">
+        <button class="carrier-tab active" onclick="switchTab(this, 'uhl-products')">Products / Plans</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'uhl-contacts')">Contacts & Emails</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'uhl-underwriting')">Underwriting / Declined</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'uhl-portal')">Agent Portal</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'uhl-commissions')">Commissions</button>
+      </div>
+
+      <div id="uhl-products" class="carrier-tab-panel active">
+        <div class="detail-section">
+          <div class="detail-section-title">Products Available in Navigator</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Quility Secure Future Complete (QSFC)</div>
+              <div class="contact-info">Applied directly in Navigator. Whole life / permanent coverage product.</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">JIT Contracting</div>
+          <div class="info-box">ℹ️ <span>UHL uses <strong>Just-In-Time (JIT)</strong> contracting for all states.</span></div>
+        </div>
+      </div>
+
+      <div id="uhl-contacts" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Key Contacts</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Life Contact Center (All inquiries)</div>
+              <div class="contact-info">Monday–Friday, 8am–6:30pm EST<br>Phone: 1-800-428-3001<br><a href="mailto:Life.ContactCenter@unitedhomelife.com">Life.ContactCenter@unitedhomelife.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Agent Portal Issues</div>
+              <div class="contact-info"><a href="mailto:lifevendors@infarmbureau.com">lifevendors@infarmbureau.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="uhl-underwriting" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Declined Application</div>
+          <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Please reach out to UHL's Life Contact Center for questions on decision rationale. They will be able to provide information on the declined application.</div></div>
+          <div class="info-box">ℹ️ <span><strong>Zendesk Macro:</strong> UHL-Decline</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">App Resets / Case Management</div>
+          <div class="escalation-box">
+            <div class="esc-row"><span class="esc-label">Level 1</span><span class="esc-value">Navigator Level 2 / TechFicient</span></div>
+            <div class="esc-row"><span class="esc-label">Contact</span><span class="esc-value"><a href="mailto:Life.ContactCenter@unitedhomelife.com">Life.ContactCenter@unitedhomelife.com</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="uhl-portal" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Agent Portal Access</div>
+          <div class="contact-card">
+            <div class="contact-carrier">Can't login / Portal Issues</div>
+            <div class="contact-info"><a href="mailto:lifevendors@infarmbureau.com">lifevendors@infarmbureau.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Navigator Access Issues</div>
+          <div class="escalation-box">
+            <div class="esc-row"><span class="esc-label">Level 1</span><span class="esc-value">Quility Support</span></div>
+            <div class="esc-row"><span class="esc-label">Level 2</span><span class="esc-value">TechFicient: <a href="mailto:support@techf.com">support@techf.com</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="uhl-commissions" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Policy Commission Questions</div>
+          <div class="contact-card">
+            <div class="contact-carrier">UHL Commissions</div>
+            <div class="contact-info"><a href="mailto:Life.ContactCenter@unitedhomelife.com">Life.ContactCenter@unitedhomelife.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Quility Commission Structure Questions</div>
+          <div class="info-box">ℹ️ <span>Escalate to a Quility ticket for hierarchy, contracting, or structure questions.</span></div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 13,
+    cat: "carriers",
+    catLabel: "Carriers & Products",
+    catColor: "#ffd166",
+    catBg: "rgba(255,209,102,0.1)",
+    icon: "🏦",
+    title: "SBLI",
+    summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions.",
+    tags: ["SBLI", "carriers", "QLT", "underwriting", "JIT", "commissions"],
+    escalation: "L1/L2",
+    body: `
+      <div class="carrier-tabs">
+        <button class="carrier-tab active" onclick="switchTab(this, 'sbli-products')">Products / Plans</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'sbli-contacts')">Contacts & Emails</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'sbli-underwriting')">Underwriting / Declined</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'sbli-portal')">Agent Portal</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'sbli-commissions')">Commissions</button>
+      </div>
+
+      <div id="sbli-products" class="carrier-tab-panel active">
+        <div class="detail-section">
+          <div class="detail-section-title">Products Available in Navigator</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Quility Level Term (QLT)</div>
+              <div class="contact-info">Applied directly in Navigator. Term life coverage product.</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">JIT Contracting</div>
+          <div class="info-box">ℹ️ <span>SBLI uses JIT contracting for most states. <strong>Exceptions: PA, OR, UT, IN</strong> — these require standard contracting. Send macro: "Non-resident state licenses SBLI".</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">SBLI Appointment Request (Exception States)</div>
+          <div class="copy-box"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">To: quilityagentservices@sbli.com
+Subject: Quility -- [Agent Contract Code] -- [Agent Name] -- [Request Type]
+Example: Quility -- 12345 -- Michael Smith -- New Appointment
+Body: Details of the request + attach any documents if applicable.</div></div>
+        </div>
+      </div>
+
+      <div id="sbli-contacts" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Key Contacts</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">General / Policy Questions</div>
+              <div class="contact-info"><a href="mailto:quility@sbli.com">quility@sbli.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">New Business Case Management</div>
+              <div class="contact-info">Agent Access Line: 888-224-7254 Option #3<br><a href="mailto:EasyTrak@sbli.com">EasyTrak@sbli.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Commissions</div>
+              <div class="contact-info"><a href="mailto:sblicommissions@sbli.com">sblicommissions@sbli.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Appointment Requests</div>
+              <div class="contact-info"><a href="mailto:quilityagentservices@sbli.com">quilityagentservices@sbli.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sbli-underwriting" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Declined Application</div>
+          <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">You can view the decline reason in Navigator on the Cases page: 1. Go to Cases. 2. Click on the client. 3. Click "Open eApp" in the upper right — this opens Screen 2. 4. Under "Case Details" you will see the reason for decline.</div></div>
+          <div class="info-box">ℹ️ <span><strong>Zendesk Macro:</strong> SBLI-Decline</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">App Resets (Post-Submission)</div>
+          <div class="escalation-box">
+            <div class="esc-row"><span class="esc-label">Process</span><span class="esc-value">Escalate to Nav Level 2 → Nav Support checks guide → notifies TechF + SBLI for reset (Level 3)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sbli-portal" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Agent Portal (SBLIagent.com)</div>
+          <div class="contact-card">
+            <div class="contact-carrier">Can't access agent platform</div>
+            <div class="contact-info">Brokerage Team: 888-224-7254 Option #1<br><a href="mailto:quility@sbli.com">quility@sbli.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Customer Portal (mysbli.com)</div>
+          <div class="contact-card">
+            <div class="contact-carrier">Can't access customer platform</div>
+            <div class="contact-info">SBLI Customer Service: 800-694-7254</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sbli-commissions" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Policy Commission Questions</div>
+          <div class="contact-card">
+            <div class="contact-carrier">SBLI Commissions</div>
+            <div class="contact-info"><a href="mailto:sblicommissions@sbli.com">sblicommissions@sbli.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Quility Commission Structure Questions</div>
+          <div class="info-box">ℹ️ <span>Escalate to a Quility ticket for hierarchy, contracting, or structure questions.</span></div>
+        </div>
+      </div>
+    `
+  },
+  {
+    id: 14,
+    cat: "carriers",
+    catLabel: "Carriers & Products",
+    catColor: "#ffd166",
+    catBg: "rgba(255,209,102,0.1)",
+    icon: "🏦",
+    title: "LGA — Legal & General / Banner Life",
+    summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions. Note: Banner Life and LGA are the same company.",
+    tags: ["LGA", "carriers", "QTP", "Banner Life", "underwriting", "JIT", "commissions"],
+    escalation: "L1/L2",
+    body: `
+      <div class="warn-box">⚠️ <span><strong>Banner Life = LGA:</strong> Banner Life and Legal & General are the same company. Always enter writing numbers under "Legal and General" in HQ — Navigator won't read them if entered under "Banner Life".</span></div>
+      <div class="carrier-tabs">
+        <button class="carrier-tab active" onclick="switchTab(this, 'lga-products')">Products / Plans</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'lga-contacts')">Contacts & Emails</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'lga-underwriting')">Underwriting / Declined</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'lga-portal')">Agent Portal</button>
+        <button class="carrier-tab" onclick="switchTab(this, 'lga-commissions')">Commissions</button>
+      </div>
+
+      <div id="lga-products" class="carrier-tab-panel active">
+        <div class="detail-section">
+          <div class="detail-section-title">Products Available in Navigator</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Quility Term Plus (QTP)</div>
+              <div class="contact-info">Applied directly in Navigator. Term life coverage product.</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">JIT Contracting</div>
+          <div class="info-box">ℹ️ <span>LGA uses <strong>Just-In-Time (JIT)</strong> contracting for all states — agents are appointed upon submission of their first application.</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">LGA JIT Email Response</div>
+          <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">LGA uses a Just-in-time contracting process, meaning that when you submit an application they appoint you with that state. The message you received notifies you that LGA is in the process of appointing you for that specific state. It usually does not take more than a couple of days. Once that goes through, you and your client will receive the offer to review and accept!</div></div>
+        </div>
+      </div>
+
+      <div id="lga-contacts" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Key Contacts</div>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-carrier">Application Issues / Case Status</div>
+              <div class="contact-info"><a href="mailto:BannerBeyond@bannerlife.com">BannerBeyond@bannerlife.com</a><br>833-706-2317<br><small>Self-Service: Partner Dashboard (basic) or Application Manager (full details)</small></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Post-Issue / Policy Questions</div>
+              <div class="contact-info"><a href="mailto:customerservice@bannerlife.com">customerservice@bannerlife.com</a><br>800-638-8428</div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Commissions</div>
+              <div class="contact-info"><a href="mailto:commission@bannerlife.com">commission@bannerlife.com</a></div>
+            </div>
+            <div class="contact-card">
+              <div class="contact-carrier">Agent Portal / Helpdesk</div>
+              <div class="contact-info"><a href="mailto:Bannerbeyond@bannerlife.com">Bannerbeyond@bannerlife.com</a><br>877-454-2287</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lga-underwriting" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Declined Application</div>
+          <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Please reach out to onlineapp@lgamerica.com for questions on decision rationale. They will be able to provide information on the declined application.</div></div>
+          <div class="info-box">ℹ️ <span><strong>Zendesk Macro:</strong> LGA-Decline</span></div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">App Resets (Post-Submission)</div>
+          <div class="contact-card">
+            <div class="contact-carrier">Reset / Underwriting Requests</div>
+            <div class="contact-info"><a href="mailto:Bannerbeyond@bannerlife.com">Bannerbeyond@bannerlife.com</a><br>833-706-2317</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lga-portal" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Agent Portal Access</div>
+          <div class="contact-card">
+            <div class="contact-carrier">Can't login / Portal Issues</div>
+            <div class="contact-info"><a href="mailto:Bannerbeyond@bannerlife.com">Bannerbeyond@bannerlife.com</a><br>877-454-2287</div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Navigator Access Issues</div>
+          <div class="escalation-box">
+            <div class="esc-row"><span class="esc-label">Level 1</span><span class="esc-value">Quility Support</span></div>
+            <div class="esc-row"><span class="esc-label">Level 2</span><span class="esc-value">TechFicient: <a href="mailto:support@techf.com">support@techf.com</a></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="lga-commissions" class="carrier-tab-panel">
+        <div class="detail-section">
+          <div class="detail-section-title">Policy Commission Questions</div>
+          <div class="contact-card">
+            <div class="contact-carrier">LGA / Banner Life Commissions</div>
+            <div class="contact-info"><a href="mailto:commission@bannerlife.com">commission@bannerlife.com</a></div>
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-section-title">Quility Commission Structure Questions</div>
+          <div class="info-box">ℹ️ <span>Escalate to a Quility ticket for hierarchy, contracting, or structure questions.</span></div>
+        </div>
+      </div>
+    `
+  },
+
 ];
 
 // =====================
@@ -598,6 +1054,21 @@ function copyText(btn) {
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   });
+}
+
+
+// =====================
+// CARRIER TABS
+// =====================
+function switchTab(el, tabId) {
+  const panel = el.closest('.detail-body') || el.closest('.carrier-tabs').parentElement;
+  // Deactivate all tabs and panels in this carrier block
+  panel.querySelectorAll('.carrier-tab').forEach(t => t.classList.remove('active'));
+  panel.querySelectorAll('.carrier-tab-panel').forEach(p => p.classList.remove('active'));
+  // Activate selected
+  el.classList.add('active');
+  const target = panel.querySelector('#' + tabId);
+  if (target) target.classList.add('active');
 }
 
 // =====================

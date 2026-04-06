@@ -42,18 +42,23 @@ const articles = [
     catColor: "#ffd166",
     catBg: "rgba(255,209,102,0.1)",
     icon: "🏢",
-    title: "4 Carriers You Can Apply With in Navigator",
-    summary: "Navigator quotes many carriers, but only 4 allow direct in-app applications: AmAm, LGA, SBLI, and UHL.",
-    tags: ["carriers", "AmAm", "LGA", "SBLI", "UHL", "apply"],
+    title: "5 Carriers You Can Apply With in Navigator",
+    summary: "Navigator quotes many carriers, but only 5 allow direct in-app applications: F&G, AmAm, LGA, SBLI, and UHL.",
+    tags: ["carriers", "F&G", "AmAm", "LGA", "SBLI", "UHL", "apply"],
     escalation: "L1",
     body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
-        <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Navigator quotes with many carriers, but you can apply directly in the app with 4: American Amicable (AmAm), Legal & General (LGA), SBLI, and United Home Life (UHL). For all other carriers, applications are completed on the carrier's website.</div></div>
-        <div class="info-box">ℹ️ <span><strong>Zendesk Macro:</strong> "4 carriers you can apply with directly in Navigator"</span></div>
+        <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Navigator quotes with many carriers, but you can apply directly in the app with 5: Fidelity and Guaranty (F&G), American Amicable (AmAm), Legal & General (LGA), SBLI, and United Home Life (UHL). For all other carriers, applications are completed on the carrier's website.</div></div>
+        <div class="info-box">ℹ️ <span><strong>Zendesk Macro:</strong> "5 carriers you can apply with directly in Navigator"</span></div>
       </div>
       <div class="detail-section">
         <div class="detail-section-title">Products Available Per Carrier</div>
+        <div class="contact-grid">
+          <div class="contact-card" style="cursor:pointer;border-color:rgba(255,209,102,0.3)" onclick="openDetail(11)">
+            <div class="contact-carrier">🏦 F&G — Fidelity and Guaranty</div>
+            <div class="contact-info">Quantum Indexed Universal Life (Quantum) → <strong>Open full carrier page</strong></div>
+          </div>
         <div class="contact-grid">
           <div class="contact-card" style="cursor:pointer;border-color:rgba(255,209,102,0.3)" onclick="openDetail(11)">
             <div class="contact-carrier">🏦 AmAm — American Amicable</div>
@@ -442,14 +447,6 @@ const articles = [
     tags: ["AmAm", "carriers", "QSFP", "underwriting", "commissions"],
     escalation: "L1/L2",
     body: /* html */`
-      <div class="carrier-tabs">
-        <button class="carrier-tab active" onclick="switchTab(this, 'amam-products')">Products / Plans</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'amam-contacts')">Contacts & Emails</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'amam-underwriting')">Underwriting / Declined</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'amam-portal')">Agent Portal</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'amam-commissions')">Commissions</button>
-      </div>
-
       <div id="amam-products" class="carrier-tab-panel active">
         <div class="detail-section">
           <div class="detail-section-title">Products Available in Navigator</div>
@@ -572,14 +569,6 @@ const articles = [
     tags: ["UHL", "carriers", "QSFC", "underwriting", "commissions"],
     escalation: "L1/L2",
     body: /* html */`
-      <div class="carrier-tabs">
-        <button class="carrier-tab active" onclick="switchTab(this, 'uhl-products')">Products / Plans</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'uhl-contacts')">Contacts & Emails</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'uhl-underwriting')">Underwriting / Declined</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'uhl-portal')">Agent Portal</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'uhl-commissions')">Commissions</button>
-      </div>
-
       <div id="uhl-products" class="carrier-tab-panel active">
         <div class="detail-section">
           <div class="detail-section-title">Products Available in Navigator</div>
@@ -671,14 +660,6 @@ const articles = [
     tags: ["SBLI", "carriers", "QLT", "underwriting", "JIT", "commissions"],
     escalation: "L1/L2",
     body: /* html */`
-      <div class="carrier-tabs">
-        <button class="carrier-tab active" onclick="switchTab(this, 'sbli-products')">Products / Plans</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'sbli-contacts')">Contacts & Emails</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'sbli-underwriting')">Underwriting / Declined</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'sbli-portal')">Agent Portal</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'sbli-commissions')">Commissions</button>
-      </div>
-
       <div id="sbli-products" class="carrier-tab-panel active">
         <div class="detail-section">
           <div class="detail-section-title">Products Available in Navigator</div>
@@ -692,13 +673,6 @@ const articles = [
         <div class="detail-section">
           <div class="detail-section-title">JIT Contracting</div>
           <div class="info-box">ℹ️ <span>SBLI uses JIT contracting for most states. <strong>Exceptions: PA, OR, UT, IN</strong> — these require standard contracting. Send macro: "Non-resident state licenses SBLI".</span></div>
-        </div>
-        <div class="detail-section">
-          <div class="detail-section-title">SBLI Appointment Request (Exception States)</div>
-          <div class="copy-box"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">To: quilityagentservices@sbli.com
-Subject: Quility -- [Agent Contract Code] -- [Agent Name] -- [Request Type]
-Example: Quility -- 12345 -- Michael Smith -- New Appointment
-Body: Details of the request + attach any documents if applicable.</div></div>
         </div>
       </div>
 
@@ -785,14 +759,6 @@ Body: Details of the request + attach any documents if applicable.</div></div>
     escalation: "L1/L2",
     body: /* html */`
       <div class="warn-box">⚠️ <span><strong>Banner Life = LGA:</strong> Banner Life and Legal & General are the same company. Always enter writing numbers under "Legal and General" in HQ — Navigator won't read them if entered under "Banner Life".</span></div>
-      <div class="carrier-tabs">
-        <button class="carrier-tab active" onclick="switchTab(this, 'lga-products')">Products / Plans</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'lga-contacts')">Contacts & Emails</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'lga-underwriting')">Underwriting / Declined</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'lga-portal')">Agent Portal</button>
-        <button class="carrier-tab" onclick="switchTab(this, 'lga-commissions')">Commissions</button>
-      </div>
-
       <div id="lga-products" class="carrier-tab-panel active">
         <div class="detail-section">
           <div class="detail-section-title">Products Available in Navigator</div>

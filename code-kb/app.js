@@ -10,7 +10,7 @@ const articles = [
     summary: "How agents get access to Navigator and where to find training. Use Zendesk macro 'Navigator training'.",
     tags: ["access", "training", "LMS", "onboarding"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">The Navigator Training course is located in the LMS (formerly Quility U). Find the LMS icon in the grid menu (top left of HQ), or go to Sales Tools → Sales Training in the HQ sidebar. Once training is complete, Navigator access will appear in the HQ menu.</div></div>
@@ -46,7 +46,7 @@ const articles = [
     summary: "Navigator quotes many carriers, but only 4 allow direct in-app applications: AmAm, LGA, SBLI, and UHL.",
     tags: ["carriers", "AmAm", "LGA", "SBLI", "UHL", "apply"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Navigator quotes with many carriers, but you can apply directly in the app with 4: American Amicable (AmAm), Legal & General (LGA), SBLI, and United Home Life (UHL). For all other carriers, applications are completed on the carrier's website.</div></div>
@@ -90,7 +90,7 @@ const articles = [
     summary: "Agent gets an error when starting an application. Check agent status, carrier writing number, and state license in HQ.",
     tags: ["licensing", "error", "writing number", "state license", "HQ"],
     escalation: "L1/L2",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Clarifying Questions First</div>
         <ol class="step-list">
@@ -145,7 +145,7 @@ const articles = [
     summary: "AmAm, LGA, and UHL use JIT contracting. SBLI uses JIT except in PA, OR, UT, IN. Agents get appointed when they submit their first application.",
     tags: ["JIT", "contracting", "SBLI", "LGA", "AmAm", "UHL", "licensing"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">What is JIT Contracting?</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Just-In-Time (JIT) Contracting allows agents to get contracted with a carrier upon submission of their first application, rather than being pre-appointed. This streamlines the contracting experience, enabling agents to start working with carriers more quickly.</div></div>
@@ -198,7 +198,7 @@ const articles = [
     summary: "For AmAm declines, the agent needs to obtain a Milliman report. We cannot see the decline reason on our side.",
     tags: ["declined", "AmAm", "Milliman", "underwriting"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">For underwriting support on Quility Secure Future Preferred (AmAm), we recommend obtaining a Milliman report. A comprehensive report of the applicant's information is available at no cost if requested within 60 days of the decision. Applicants also have the right to dispute any information in the report directly with Milliman.</div></div>
@@ -238,7 +238,7 @@ const articles = [
     summary: "For LGA declines, direct agent to contact LGA's underwriting team at onlineapp@lgamerica.com.",
     tags: ["declined", "LGA", "underwriting"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Please reach out to onlineapp@lgamerica.com for questions on decision rationale. They will be able to provide information on the declined application.</div></div>
@@ -264,7 +264,7 @@ const articles = [
     summary: "SBLI decline reasons are visible directly in Navigator on the Cases page. Walk agent through the steps.",
     tags: ["declined", "SBLI", "cases", "Navigator"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">You can view the decline reason in Navigator on the Cases page. Here's how to find it:</div></div>
@@ -293,7 +293,7 @@ const articles = [
     summary: "For UHL declines, direct agent to the UHL Life Contact Center. We cannot see the decline reason on our side.",
     tags: ["declined", "UHL", "underwriting"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Quick Answer</div>
         <div class="copy-box highlight"><div class="copy-box-toolbar"><button class="copy-btn" onclick="copyText(this)">Copy</button></div><div class="copy-box-content">Please reach out to UHL's Life Contact Center for questions on decision rationale. They will be able to provide information on the declined application.</div></div>
@@ -323,7 +323,7 @@ const articles = [
     summary: "Complete carrier-by-carrier escalation guide covering Navigator access, application issues, underwriting, post-issue questions, commissions, and more.",
     tags: ["escalation", "matrix", "all carriers", "contacts", "reference"],
     escalation: "L1/L2/L3",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Navigator Access Issues</div>
         <div class="contact-grid">
@@ -414,7 +414,7 @@ const articles = [
     summary: "Always gather these 3 pieces of info before escalating any Navigator application issue to a ticket.",
     tags: ["process", "ticket", "clarifying", "best practice"],
     escalation: "L1",
-    body: `
+    body: /* html */`
       <div class="detail-section">
         <div class="detail-section-title">Required Before Escalating</div>
         <ol class="step-list">

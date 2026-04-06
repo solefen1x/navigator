@@ -441,7 +441,7 @@ const articles = [
     summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions.",
     tags: ["AmAm", "carriers", "QSFP", "underwriting", "commissions"],
     escalation: "L1/L2",
-    body: `
+    body: /* html */`
       <div class="carrier-tabs">
         <button class="carrier-tab active" onclick="switchTab(this, 'amam-products')">Products / Plans</button>
         <button class="carrier-tab" onclick="switchTab(this, 'amam-contacts')">Contacts & Emails</button>
@@ -571,7 +571,7 @@ const articles = [
     summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions.",
     tags: ["UHL", "carriers", "QSFC", "underwriting", "commissions"],
     escalation: "L1/L2",
-    body: `
+    body: /* html */`
       <div class="carrier-tabs">
         <button class="carrier-tab active" onclick="switchTab(this, 'uhl-products')">Products / Plans</button>
         <button class="carrier-tab" onclick="switchTab(this, 'uhl-contacts')">Contacts & Emails</button>
@@ -670,7 +670,7 @@ const articles = [
     summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions.",
     tags: ["SBLI", "carriers", "QLT", "underwriting", "JIT", "commissions"],
     escalation: "L1/L2",
-    body: `
+    body: /* html */`
       <div class="carrier-tabs">
         <button class="carrier-tab active" onclick="switchTab(this, 'sbli-products')">Products / Plans</button>
         <button class="carrier-tab" onclick="switchTab(this, 'sbli-contacts')">Contacts & Emails</button>
@@ -783,7 +783,7 @@ Body: Details of the request + attach any documents if applicable.</div></div>
     summary: "Full carrier profile: products, contacts, underwriting, agent portal, and commissions. Note: Banner Life and LGA are the same company.",
     tags: ["LGA", "carriers", "QTP", "Banner Life", "underwriting", "JIT", "commissions"],
     escalation: "L1/L2",
-    body: `
+    body: /* html */`
       <div class="warn-box">⚠️ <span><strong>Banner Life = LGA:</strong> Banner Life and Legal & General are the same company. Always enter writing numbers under "Legal and General" in HQ — Navigator won't read them if entered under "Banner Life".</span></div>
       <div class="carrier-tabs">
         <button class="carrier-tab active" onclick="switchTab(this, 'lga-products')">Products / Plans</button>
@@ -980,7 +980,7 @@ function renderCards() {
   grid.innerHTML = items.map(a => {
     const escClass = a.escalation === 'L1' ? 'esc-l1' : 'esc-l2';
     const tags = a.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join('');
-    return `
+    return /* html */`
       <div class="card" style="--card-color:${a.catColor};--card-color-bg:${a.catBg}" onclick="openDetail(${a.id})">
         <div class="card-top">
           <div class="card-icon">${a.icon}</div>
